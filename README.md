@@ -7,14 +7,14 @@
 | **SRN** | PES1UG24CS473 |
 
 
-## 📌 Project Overview
+## Project Overview
 This repository contains the solution for the "Orange Problem" assignment. The objective of this project is to implement a custom Software-Defined Networking (SDN) controller application that shifts Address Resolution Protocol (ARP) handling away from traditional switch-level flooding and centralizes it within the SDN controller. 
 
 By actively intercepting ARP requests, dynamically learning MAC addresses, and installing hardware flow rules, this implementation significantly reduces broadcast traffic and optimizes network latency.
 
 ---
 
-## 🛠️ Topology & Environment
+## Topology & Environment
 * **Environment:** Ubuntu Linux VM
 * **Network Emulator:** Mininet
 * **Topology:** `single,3` (One OpenFlow switch connected to three hosts)
@@ -26,7 +26,7 @@ A single switch with three hosts is the minimal viable environment to perfectly 
 
 ---
 
-## 🧠 Controller Logic (`arp_handler.py`)
+## Controller Logic (`arp_handler.py`)
 The custom POX module implements the following core SDN mechanisms:
 
 1. **Dynamic MAC Learning:** The controller monitors `PacketIn` events. When an ARP request arrives, it extracts the sender's IP and MAC address and stores them in an internal dictionary (`self.arp_table`).
@@ -35,7 +35,7 @@ The custom POX module implements the following core SDN mechanisms:
 
 ---
 
-## 🚀 Execution Steps
+## Execution Steps
 
 ### 1. Start the Controller
 Navigate to your POX directory and launch the custom ARP handler:
@@ -65,7 +65,7 @@ mininet> dpctl dump-flows
 
 ---
 
-## 📊 Performance Observation & Analysis
+## Performance Observation & Analysis
 By analyzing the ICMP ping statistics, the impact of the SDN controller's logic is clearly visible:
 
 * **Initial Latency Spike:** The very first ping sequence takes significantly longer (e.g., ~1086 ms). This is because the controller must process the `PacketIn` event, flood the initial unknown ARP request, process the reply, forge the response back to H1, and calculate the route.
@@ -74,7 +74,7 @@ By analyzing the ICMP ping statistics, the impact of the SDN controller's logic 
 
 ---
 
-## 📸 Proof of Execution
+## Proof of Execution
 
 ### 1. Controller Logs (MAC Learning & Interception)
 This screenshot demonstrates the controller flooding the initial request, learning the MAC, answering subsequent requests directly, and pushing the OpenFlow rules.
