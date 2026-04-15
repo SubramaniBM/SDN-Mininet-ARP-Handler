@@ -1,5 +1,12 @@
 # SDN-Mininet-ARP-Handler (Orange Problem)
 
+| | |
+|---|---|
+| **Name** | Subramani B M |
+| **Section** | 4H |
+| **SRN** | PES1UG24CS473 |
+
+
 ## 📌 Project Overview
 This repository contains the solution for the "Orange Problem" assignment. The objective of this project is to implement a custom Software-Defined Networking (SDN) controller application that shifts Address Resolution Protocol (ARP) handling away from traditional switch-level flooding and centralizes it within the SDN controller. 
 
