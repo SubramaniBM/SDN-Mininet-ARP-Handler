@@ -72,25 +72,25 @@ By analyzing the ICMP ping statistics, the impact of the SDN controller's logic 
 ### 1. Controller Logs (MAC Learning & Interception)
 This screenshot demonstrates the controller flooding the initial request, learning the MAC, answering subsequent requests directly, and pushing the OpenFlow rules.
 
-![Controller Logs](screenshots/01_controller_logs.png)
+<img width="783" height="351" alt="image" src="https://github.com/user-attachments/assets/3ff692ce-0eec-4c14-bc51-f887cc97aaf0" />
 
 ---
 
 ### 2. ICMP Ping Statistics (Latency Optimization)
 This screenshot proves the massive latency drop between the 1st ping (controller handled) and the 3rd/4th pings (switch hardware handled).
 
-![ICMP Ping Statistics](screenshots/02_ping_statistics.png)
+<img width="618" height="473" alt="image" src="https://github.com/user-attachments/assets/04dfb8d2-de97-48f0-aa7e-d46d5b7d9abb" />
 
 ---
 
 ### 3. OpenFlow Table Dump (`dpctl dump-flows`)
 This screenshot validates that the explicit flow rules (with `idle_timeout=60`) were successfully pushed to `s1`.
 
-![OpenFlow Table Dump](screenshots/03_dump_flows.png)
+<img width="1836" height="114" alt="image" src="https://github.com/user-attachments/assets/93411430-13f7-4039-893a-95ea7abaa0e9" />
 
 ---
 
 ### 4. Wireshark Packet Trace
 This packet capture proves the functional behavior on the wire: The initial ARP Broadcast, the Controller's direct ARP Reply, and the seamless ICMP Echo sequence.
 
-![Wireshark Packet Trace](screenshots/04_wireshark_trace.png)
+<img width="1847" height="344" alt="image" src="https://github.com/user-attachments/assets/8815d2f2-a7b6-4f1d-b4b4-032bf7f2fb50" />
